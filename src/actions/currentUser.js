@@ -36,7 +36,7 @@ export const login = credentials => {
 }
 
 export const logout = () => {
-    return (dispatch) => {
+    return dispatch => {
         dispatch(clearCurrentUser())
        return fetch("http://localhost:3000/api/v1/logout", {
            credentials: "include",
