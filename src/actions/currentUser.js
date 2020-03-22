@@ -6,6 +6,11 @@ export const setCurrentuser = user => {
     }
 }
 
+export const clearCurrentUser = () => {
+    return {
+        type: "CLEAR_CURRENT_USER"
+    }
+}
 
 //asynchrnonous action creators
 export const login = credentials => {
@@ -18,7 +23,7 @@ export const login = credentials => {
             }, 
             body: JSON.stringify(credentials)
         })
-        .then(response = response.json())
+        .then(r = r.json())
         .then(user => {
             if (user.error) {
                 alert(user.error)
@@ -30,6 +35,16 @@ export const login = credentials => {
     }
 }
 
+export const logout = () => {
+    return (dispatch) => {
+        dispatch(clearCurrentUser())
+       return fetch("http://localhost:3000/api/v1/logout", {
+           credentials: "include",
+           method: "DELETE"
+
+       }) 
+    }
+}
 
 export const getCurrentUser = () => {
     return dispatch => {
@@ -40,7 +55,7 @@ export const getCurrentUser = () => {
                "Content-Type": "application/json"
             }
         })
-        .then(response = response.json())
+        .then(r = r.json())
         .then(user => {
             if (user.error) {
                 alert(user.error)
