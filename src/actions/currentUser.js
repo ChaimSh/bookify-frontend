@@ -23,7 +23,7 @@ export const login = credentials => {
             }, 
             body: JSON.stringify(credentials)
         })
-        .then(r = r.json())
+        .then(r => r.json())
         .then(user => {
             if (user.error) {
                 alert(user.error)
@@ -55,12 +55,12 @@ export const getCurrentUser = () => {
                "Content-Type": "application/json"
             }
         })
-        .then(r = r.json())
-        .then(user => {
-            if (user.error) {
-                alert(user.error)
+        .then(r => r.json())
+        .then(response => {
+            if (response.error) {
+                alert(response.error)
             } else {
-                dispatch(setCurrentuser(user))
+                dispatch(setCurrentuser(response.data))
             }
         })
         .catch(console.log)

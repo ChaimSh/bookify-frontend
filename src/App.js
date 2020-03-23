@@ -1,7 +1,7 @@
 import React from 'react';
 import './App.css';
 import Login from './components/Login.js'
-import Logout from './components/Logout.js'
+import NavBar from './components/NavBar.js'
 import {connect} from 'react-redux'
 import {getCurrentUser} from './actions/currentUser.js'
 
@@ -13,7 +13,7 @@ class App extends React.Component {
 
   render() {
   return (
-    this.props.currentUser ? <Logout/> : <Login />
+      <NavBar />
     );
   }
 }
