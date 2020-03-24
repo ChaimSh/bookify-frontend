@@ -1,5 +1,7 @@
+import { resetLoginForm } from "./loginForm.js"
+
 //synchronous action creators
-export const setCurrentuser = user => {
+export const setCurrentUser = user => {
     return {
         type: "SET_CURRENT_USER",
         user
@@ -28,7 +30,8 @@ export const login = credentials => {
             if (user.error) {
                 alert(user.error)
             } else {
-                dispatch(setCurrentuser(user))
+                dispatch(setCurrentUser(user))
+                dispatch(resetLoginForm())
             }
         })
         .catch(console.log)
@@ -60,7 +63,7 @@ export const getCurrentUser = () => {
             if (response.error) {
                 alert(response.error)
             } else {
-                dispatch(setCurrentuser(response.data))
+                dispatch(setCurrentUser(response.data))
             }
         })
         .catch(console.log)
