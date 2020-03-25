@@ -15,20 +15,8 @@ const Signup = ({ signupFormData, updateSignupForm, signup, history}) => {
         updateSignupForm(updatedFormInfo)
       }
 
-      
-  const handleHomeTownInfoInputChange = event => {
-    const { name, value } = event.target
-    const updatedFormInfo = {
-      ...signupFormData,
-      hometown: {
-        ...signupFormData.hometown,
-        [name]: value
-      }
-    }
-    updateSignupForm(updatedFormInfo)
-  }
 
-      const handleSubmit = event => {
+    const handleSubmit = event => {
         event.preventDefault()
         signup(signupFormData, history)
       }
@@ -37,9 +25,8 @@ const Signup = ({ signupFormData, updateSignupForm, signup, history}) => {
     return (
       <form onSubmit={handleSubmit}>
         <input placeholder="name" value={signupFormData.name} name="name" type="text" onChange={handleUserInfoInputChange} />
-      <input placeholder="username" value={signupFormData.username} name="username" type="text" onChange={handleUserInfoInputChange} />
-      <input placeholder="password" value={signupFormData.password} name="password" type="text" onChange={handleUserInfoInputChange} />
-      <input placeholder="city" value={signupFormData.hometown.city} name="city" type="text" onChange={handleHomeTownInfoInputChange} />
+        <input placeholder="username" value={signupFormData.username} name="username" type="text" onChange={handleUserInfoInputChange} />
+        <input placeholder="password" value={signupFormData.password} name="password" type="text" onChange={handleUserInfoInputChange} />
         <input type="submit" value="Sign Up" />
       </form>
     )

@@ -1,5 +1,6 @@
 import { resetLoginForm } from "./loginForm.js"
 import { getBooks } from "./books.js"
+import { resetSignupForm } from "./signupForm"
 
 //synchronous action creators
 export const setCurrentUser = user => {
@@ -16,6 +17,37 @@ export const clearCurrentUser = () => {
 }
 
 //asynchrnonous action creators
+
+export const signup = (credentials) => {
+    return dispatch => {
+      const userInfo = {
+        user: credentials
+      }
+      return fetch("http://localhost:3000/api/v1/signup", {
+        credentials: "include",
+        method: "POST",
+        headers: {
+          "Content-Type": "application/json"
+        },
+        body: JSON.stringify(userInfo)
+      })
+        .then(r => r.json())
+        .then(response => {
+          if (response.error) {
+            alert(response.error)
+          } else {
+            dispatch(setCurrentUser(response.data))
+            dispatch(resetSignupForm())
+            // history.push('/')
+          }
+        })
+        .catch(console.log)
+    }
+  }
+
+
+
+
 export const login = credentials => {
     return dispatch => {
         return fetch("http://localhost:3000/api/v1/login", {
