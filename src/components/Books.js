@@ -5,7 +5,7 @@ import {connect} from 'react-redux'
 
 //parent container
 
-const Books = () => {
+const Books = props => {
     const bookCards = props.books.length > 0 ? props.books.map(b => <BookCard book={b} key={b.id}/>) : null
     return (
        bookCards
