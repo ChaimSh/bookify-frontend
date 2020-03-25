@@ -1,11 +1,11 @@
 import React from 'react'
-// import Books from './Books.js'
+import Books from './Books.js'
 
 
 const MainContainer = () => {
     return (
         <div className="MainContainer">
-            {/* <Books /> */}
+            <Books />
         </div>
     )
 }

@@ -9,7 +9,7 @@ const NavBar = ({currentUser}) => {
 
     return (
     <div className="NavBar">
-      {currentUser ? "Welcome, ${currentUser.attributes.name}": ""}
+      {currentUser ? `Welcome, ${currentUser.attributes.name}`: ""}
       {currentUser ? <Logout /> : <Login /> }
       
 

@@ -1,4 +1,5 @@
 import { resetLoginForm } from "./loginForm.js"
+import { getBooks } from "./books.js"
 
 //synchronous action creators
 export const setCurrentUser = user => {
@@ -64,6 +65,7 @@ export const getCurrentUser = () => {
                 alert(response.error)
             } else {
                 dispatch(setCurrentUser(response.data))
+                dispatch(getBooks())
             }
         })
         .catch(console.log)
