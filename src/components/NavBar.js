@@ -9,13 +9,9 @@ const NavBar = ({currentUser}) => {
 
     return (
     <div className="NavBar">
-      <button>Login</button> 
-      <button>Signup</button>
+      
       {currentUser ? `Welcome, ${currentUser.attributes.name}`: ""}
       
-      {currentUser ? <Logout /> : <Login /> }
-      
-
     </div>      
   )
 }

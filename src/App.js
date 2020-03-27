@@ -4,11 +4,12 @@ import Login from './components/Login.js'
 // import Logout from './components/Logout.js'
 import NavBar from './components/NavBar.js'
 import Books from './components/Books.js'
+import Home from './components/Home.js'
 import Signup from './components/Signup.js'
 import {connect} from 'react-redux'
 import {getCurrentUser} from './actions/currentUser.js'
-import MainContainer from './components/MainContainer';
-import {BrowserRouter as Router, Route} from 'react-router-dom'
+// import MainContainer from './components/MainContainer';
+import { Route, Switch, withRouter } from 'react-router-dom'
 
 class App extends React.Component {
   
@@ -17,24 +18,26 @@ class App extends React.Component {
   }
 
   render() {
+    const { loggedIn } = this.props
   return (
-    <Router>
-      <div className="App">    
-      <NavBar />
-      <Route exact path='/signup' component={Signup} />
+      <div className="App"> 
+      { loggedIn ? <NavBar location={this.props.location}/> : <Home/> }   
+       <Switch>
+         <Route exact path='/' render={() => loggedIn ? <Books /> : <Home /> } />
+         <Route exact path='/signup' component={Signup} />
          <Route exact path='/login' component={Login} />
          <Route exact path='/books' component={Books} />
-     
+     </Switch>
       </div>
-      </Router>
     );
   }
 }
 
-const mapStateToProps = ({ currentUser }) => {
+const mapStateToProps = state => {
   return {
-    currentUser
+    loggedIn: !!state.currentUser 
+    // books: state.books
   }
 }
 
-export default connect(mapStateToProps, {getCurrentUser})(App);
+export default withRouter(connect(mapStateToProps, { getCurrentUser })(App));
