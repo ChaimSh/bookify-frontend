@@ -24,7 +24,6 @@ class App extends React.Component {
       <div className="App"> 
       { loggedIn ? <NavBar location={this.props.location}/> : <Home/> }   
        <Switch>
-         <Route exact path='/' render={() => loggedIn ? <Books /> : <Home /> } />
          <Route exact path='/signup' render={({history})=><Signup history={history} />} />
          <Route exact path='/login' component={Login} />
          <Route exact path='/books' component={Books} />
