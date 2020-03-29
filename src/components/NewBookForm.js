@@ -4,7 +4,7 @@ import {connect} from 'react-redux'
 
 //presentational component
 
-const NewBookForm = ({title, description, award, history}) => {
+const NewBookForm = ({title, description, award, history, updateNewBookForm}) => {
 
     const handleChange = event => {
        const {name, value} = event.target

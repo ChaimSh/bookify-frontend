@@ -9,7 +9,7 @@ export default (state = initialState, action) => {
         case "UPDATE_NEW_BOOK_FORM":
             return {
                 ...state, 
-                [action.FormData.name]: action.FormData.value
+                [action.formData.name]: action.formData.value
             }
         case "RESET_NEW_BOOK_FORM":
             return initialState
