@@ -7,6 +7,12 @@ export const setBooks = books => {
     }
 }
 
+export const clearBooks = () => {
+    return {
+        type: "CLEAR_BOOKS"
+    }
+}
+
 
 // asynchronous actions
 

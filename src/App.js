@@ -5,6 +5,7 @@ import Login from './components/Login.js'
 import NavBar from './components/NavBar.js'
 import Books from './components/Books.js'
 import Home from './components/Home.js'
+import NewBookForm from './components/NewBookForm.js'
 import Signup from './components/Signup.js'
 import {connect} from 'react-redux'
 import {getCurrentUser} from './actions/currentUser.js'
@@ -18,15 +19,16 @@ class App extends React.Component {
   }
 
   render() {
-    const { loggedIn } = this.props
+    const { loggedIn, books } = this.props
   return (
       <div className="App"> 
       { loggedIn ? <NavBar location={this.props.location}/> : <Home/> }   
        <Switch>
          <Route exact path='/' render={() => loggedIn ? <Books /> : <Home /> } />
-         <Route exact path='/signup' component={Signup} />
+         <Route exact path='/signup' render={({history})=><Signup history={history} />} />
          <Route exact path='/login' component={Login} />
          <Route exact path='/books' component={Books} />
+         <Route exact path='/books/new' component={NewBookForm} />
      </Switch>
       </div>
     );
@@ -35,8 +37,8 @@ class App extends React.Component {
 
 const mapStateToProps = state => {
   return {
-    loggedIn: !!state.currentUser 
-    // books: state.books
+    loggedIn: !!state.currentUser, 
+    books: state.books
   }
 }
 

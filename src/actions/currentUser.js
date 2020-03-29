@@ -1,6 +1,7 @@
 import { resetLoginForm } from "./loginForm.js"
-import { getBooks } from "./books.js"
+import { getBooks, clearBooks } from "./books.js"
 import { resetSignupForm } from "./signupForm"
+
 
 //synchronous action creators
 export const setCurrentUser = user => {
@@ -18,7 +19,7 @@ export const clearCurrentUser = () => {
 
 //asynchrnonous action creators
 
-export const signup = (credentials) => {
+export const signup = (credentials, history) => {
     return dispatch => {
       const userInfo = {
         user: credentials
@@ -39,7 +40,7 @@ export const signup = (credentials) => {
             dispatch(setCurrentUser(response.data))
             dispatch(getBooks())
             dispatch(resetSignupForm())
-            // history.push('/')
+            history.push('/')
           }
         })
         .catch(console.log)
@@ -77,11 +78,11 @@ export const login = (credentials, history) => {
 export const logout = () => {
     return dispatch => {
         dispatch(clearCurrentUser())
+        dispatch(clearBooks())
        return fetch("http://localhost:3001/api/v1/logout", {
            credentials: "include",
            method: "DELETE"
-
-       }) 
+       })     
     }
 }
 
