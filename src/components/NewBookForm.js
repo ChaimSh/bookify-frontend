@@ -1,10 +1,11 @@
 import React from 'react'
 import { updateNewBookForm } from '../actions/newBookForm'
+import { createBook } from '../actions/books'
 import {connect} from 'react-redux'
 
 //presentational component
 
-const NewBookForm = ({formData, updateNewBookForm}) => {
+const NewBookForm = ({formData, updateNewBookForm, createBook, userId}) => {
 const {title, description, award} = formData
     
     const handleChange = event => {
@@ -14,7 +15,10 @@ const {title, description, award} = formData
 
       const handleSubmit = event => {
          event.preventDefault()
-
+          createBook({
+              ...formData,
+              userId
+            })
       }
 
    return(
@@ -45,9 +49,11 @@ const {title, description, award} = formData
    )}
 
 const mapStateToProps = state => {  
-  return {
-    formData: state.newBookForm
+    const userId = state.currentUser ? state.currentUser.id : ""
+    return {
+    formData: state.newBookForm,
+    userId
   }
 }
 
-export default connect(mapStateToProps, {updateNewBookForm})(NewBookForm)
+export default connect(mapStateToProps, {updateNewBookForm, createBook})(NewBookForm)

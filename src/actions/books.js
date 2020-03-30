@@ -46,8 +46,28 @@ export const getBooks = () => {
 
 export const createBook = bookData => {
   return dispatch => {
-      return fetch("http://localhost:3001/books", {
-          method: "POST", 
+      const sendableData = {
+          title: bookData.title,
+          description: bookData.description,
+          award: bookData.award,
+          user_id: bookData.userId
+      }
+      return fetch("http://localhost:3001/api/v1/books", {
+      credentials: 'include',    
+      method: "POST", 
+      headers: {
+        "Content-Type": "application/json" 
+      },
+      body: JSON.stringify(sendableData)
       })
+      .then(r => r.json())
+      .then(resp => {
+          if (resp.error) {
+              alert(resp.error)
+          } else {
+              dispatch(addBook(resp.data))
+          }
+      })
+      .catch(console.log)
   } 
 }
