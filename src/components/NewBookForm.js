@@ -4,8 +4,9 @@ import {connect} from 'react-redux'
 
 //presentational component
 
-const NewBookForm = ({title, description, award, history, updateNewBookForm}) => {
-
+const NewBookForm = ({formData, updateNewBookForm}) => {
+const {title, description, award} = formData
+    
     const handleChange = event => {
        const {name, value} = event.target
        updateNewBookForm(name, value)
@@ -13,6 +14,7 @@ const NewBookForm = ({title, description, award, history, updateNewBookForm}) =>
 
       const handleSubmit = event => {
          event.preventDefault()
+
       }
 
    return(
@@ -42,12 +44,9 @@ const NewBookForm = ({title, description, award, history, updateNewBookForm}) =>
         </form>
    )}
 
-const mapStateToProps = state => {
-  const {title, description, award} = state.newBookForm  
+const mapStateToProps = state => {  
   return {
-    title, 
-    description, 
-    award
+    formData: state.newBookForm
   }
 }
 

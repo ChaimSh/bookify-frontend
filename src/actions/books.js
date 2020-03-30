@@ -13,6 +13,13 @@ export const clearBooks = () => {
     }
 }
 
+export const addBook = book => {
+    return {
+        type: "ADD_BOOK",
+        book
+    }
+}
+
 
 // asynchronous actions
 
@@ -35,4 +42,12 @@ export const getBooks = () => {
         })
         .catch(console.log)
     } 
+}
+
+export const createBook = bookData => {
+  return dispatch => {
+      return fetch("http://localhost:3001/books", {
+          method: "POST", 
+      })
+  } 
 }
