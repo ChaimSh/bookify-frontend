@@ -7,9 +7,7 @@ import {connect} from 'react-redux'
 
 const Books = props => {
     const bookCards = props.books.length > 0 ? props.books.map(b => <BookCard book={b} key={b.id}/>) : null
-    return (
-       bookCards
-    )
+    return bookCards
 }
 // get array of books from state
 //when use mapStateToProps = we need to see if this 

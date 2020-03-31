@@ -5,7 +5,10 @@ import React from 'react'
 const BookCard = ({ book }) => {
 
     return (
-    <p> {book.attributes.title} </p>
+    <div>  
+    <h3> {book.title} </h3>
+         {book.description}
+    </div>
     )
 }
 

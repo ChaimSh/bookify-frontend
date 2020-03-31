@@ -25,7 +25,7 @@ export const addBook = book => {
 
 export const getBooks = () => {
     return dispatch => {
-        return fetch("http://localhost:3000/api/v1/books", {
+        return fetch("http://localhost:3001/api/v1/books", {
             credentials: "include",
             method: "GET",
             headers: {
@@ -34,10 +34,11 @@ export const getBooks = () => {
         })
         .then(r => r.json())
         .then(response => {
+            console.log(response)
             if (response.error) {
                 alert(response.error)
             } else {
-                dispatch(setBooks(response.data))
+                dispatch(setBooks(response))
             }
         })
         .catch(console.log)
@@ -65,7 +66,8 @@ export const createBook = bookData => {
           if (resp.error) {
               alert(resp.error)
           } else {
-              dispatch(addBook(resp.data))
+            //   console.log(resp)
+              dispatch(addBook(resp))
           }
       })
       .catch(console.log)

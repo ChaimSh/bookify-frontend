@@ -3,7 +3,7 @@ export default (state = [], action) => {
       case "SET_BOOKS":
          return action.books
       case "ADD_BOOK":
-          return state.books.concat(action.books)
+          return state.concat(action.book)
       case "CLEAR_BOOKS":
           return []
      default:

@@ -37,7 +37,7 @@ export const signup = (credentials, history) => {
           if (response.error) {
             alert(response.error)
           } else {
-            dispatch(setCurrentUser(response.data))
+            dispatch(setCurrentUser(response))
             dispatch(getBooks())
             dispatch(resetSignupForm())
             history.push('/')
@@ -100,7 +100,8 @@ export const getCurrentUser = () => {
             if (response.error) {
                 alert(response.error)
             } else {
-                dispatch(setCurrentUser(response.data))
+                console.log("Happy PURIM!")
+                dispatch(setCurrentUser(response))
                 dispatch(getBooks())
             }
         })
