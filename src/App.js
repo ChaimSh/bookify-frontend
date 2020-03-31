@@ -12,6 +12,8 @@ import {getCurrentUser} from './actions/currentUser.js'
 // import MainContainer from './components/MainContainer';
 import { Route, Switch, withRouter } from 'react-router-dom'
 
+
+
 class App extends React.Component {
   
   componentDidMount() {

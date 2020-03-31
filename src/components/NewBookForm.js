@@ -3,9 +3,9 @@ import { updateNewBookForm } from '../actions/newBookForm'
 import { createBook } from '../actions/books'
 import {connect} from 'react-redux'
 
-//presentational component
 
-const NewBookForm = ({formData, updateNewBookForm, createBook, userId}) => {
+//functional component
+const NewBookForm = ({formData, updateNewBookForm, createBook, userId, history}) => {
 const {title, description, award} = formData
     
     const handleChange = event => {
@@ -18,7 +18,7 @@ const {title, description, award} = formData
           createBook({
               ...formData,
               userId
-            })
+            }, history)
       }
 
    return(

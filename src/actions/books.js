@@ -1,3 +1,5 @@
+import {resetNewBookForm} from './newBookForm'
+
 //synchronous actions
 
 export const setBooks = books => {
@@ -45,7 +47,7 @@ export const getBooks = () => {
     } 
 }
 
-export const createBook = bookData => {
+export const createBook = (bookData, history) => {
   return dispatch => {
       const sendableData = {
           title: bookData.title,
@@ -68,6 +70,8 @@ export const createBook = bookData => {
           } else {
             //   console.log(resp)
               dispatch(addBook(resp))
+              dispatch(resetNewBookForm())
+              history.push(`/books/${resp.id}`)
           }
       })
       .catch(console.log)
