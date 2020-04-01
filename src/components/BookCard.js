@@ -6,8 +6,10 @@ const BookCard = ({ book }) => {
 
     return (
     <div>  
+        {console.log("Hey im in /components/Bookcard.js",book)}
     <h3> {book.title} </h3>
-         {book.description}
+         <b>Description:</b> {book.description}<br/>
+         <b>Award:</b> {book.award}
     </div>
     )
 }

@@ -100,7 +100,6 @@ export const getCurrentUser = () => {
             if (response.error) {
                 alert(response.error)
             } else {
-                console.log("Happy PURIM!")
                 dispatch(setCurrentUser(response))
                 dispatch(getBooks())
             }

@@ -5,6 +5,7 @@ import Login from './components/Login.js'
 import NavBar from './components/NavBar.js'
 import Books from './components/Books.js'
 import Home from './components/Home.js'
+import BookCard from './components/BookCard.js'
 import NewBookForm from './components/NewBookForm.js'
 import Signup from './components/Signup.js'
 import {connect} from 'react-redux'
@@ -30,6 +31,14 @@ class App extends React.Component {
          <Route exact path='/login' component={Login} />
          <Route exact path='/books' component={Books} />
          <Route exact path='/books/new' component={NewBookForm} />
+         {console.log("see my books:", books)}
+         <Route exact path='/books/:id' render={props => {
+          //  console.log("see my books:", books)
+           const book = books.find(book => book.id === props.match.params.id)
+           //console.log(book)
+           return <BookCard book={book} {...props}/>
+          }
+        } />
      </Switch>
       </div>
     );
@@ -37,10 +46,10 @@ class App extends React.Component {
 }
 
 const mapStateToProps = state => {
-  return {
+  return ({
     loggedIn: !!state.currentUser, 
     books: state.books
-  }
+  })
 }
 
 export default withRouter(connect(mapStateToProps, { getCurrentUser })(App));
