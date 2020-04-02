@@ -5,12 +5,14 @@ import React from 'react'
 const BookCard = ({ book }) => {
 
     return (
+        book ?
     <div>  
         {console.log("Hey im in /components/Bookcard.js",book)}
     <h3> {book.title} </h3>
          <b>Description:</b> {book.description}<br/>
          <b>Award:</b> {book.award}
-    </div>
+    </div> :
+    <p>No book Here!</p>
     )
 }
 

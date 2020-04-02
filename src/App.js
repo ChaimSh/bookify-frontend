@@ -7,6 +7,8 @@ import Books from './components/Books.js'
 import Home from './components/Home.js'
 import BookCard from './components/BookCard.js'
 import NewBookForm from './components/NewBookForm.js'
+import EditBookFormWrapper from './components/EditBookFormWrapper.js'
+import NewBookFormWrapper from './components/NewBookFormWrapper.js'
 import Signup from './components/Signup.js'
 import {connect} from 'react-redux'
 import {getCurrentUser} from './actions/currentUser.js'
@@ -30,7 +32,7 @@ class App extends React.Component {
          <Route exact path='/signup' render={({history})=><Signup history={history} />} />
          <Route exact path='/login' component={Login} />
          <Route exact path='/books' component={Books} />
-         <Route exact path='/books/new' component={NewBookForm} />
+         <Route exact path='/books/new' component={NewBookFormWrapper} />
          {console.log("see my books:", books)}
          <Route exact path='/books/:id' render={props => {
           //  console.log("see my books:", books)
@@ -39,6 +41,12 @@ class App extends React.Component {
            return <BookCard book={book} {...props}/>
           }
         } />
+
+          <Route exact path='/books/:id/edit' render={props=> {
+            const book = books.find(book => book.id === props.match.params.id)
+            return <EditBookFormWrapper book={book} {...props}/>
+            }
+          }/>
      </Switch>
       </div>
     );

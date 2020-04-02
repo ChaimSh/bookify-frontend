@@ -1,11 +1,10 @@
 import React from 'react'
 import { updateNewBookForm } from '../actions/newBookForm'
-import { createBook } from '../actions/books'
 import {connect} from 'react-redux'
 
 
 //functional component
-const NewBookForm = ({formData, updateNewBookForm, createBook, userId, history}) => {
+const NewBookForm = ({formData, updateNewBookForm, userId, book, handleSubmit}) => {
 const {title, description, award} = formData
     
     const handleChange = event => {
@@ -13,17 +12,11 @@ const {title, description, award} = formData
        updateNewBookForm(name, value)
     }
 
-      const handleSubmit = event => {
-         event.preventDefault()
-          createBook({
-              ...formData,
-              userId
-            }, history)
-      }
-
-   return(
-              
-        <form onSubmit={handleSubmit}>
+     return(              
+        <form onSubmit={event => {
+          event.preventDefault()
+          handleSubmit(formData)
+        }}>
             <input
             placeholder="Title"
             name="title"
@@ -46,14 +39,14 @@ const {title, description, award} = formData
             />
           <input type="submit" value="Create Book"/>
         </form>
-   )}
+     )}
 
-const mapStateToProps = state => {  
-    const userId = state.currentUser ? state.currentUser.id : ""
-    return {
-    formData: state.newBookForm,
-    userId
-  }
-}
+    const mapStateToProps = state => {  
+        const userId = state.currentUser ? state.currentUser.id : ""
+        return {
+        formData: state.newBookForm,
+        userId
+      }
+ }
 
-export default connect(mapStateToProps, {updateNewBookForm, createBook})(NewBookForm)
+export default connect(mapStateToProps, {updateNewBookForm})(NewBookForm)
