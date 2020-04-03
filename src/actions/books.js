@@ -40,6 +40,7 @@ export const getBooks = () => {
             if (response.error) {
                 alert(response.error)
             } else {
+                console.log("YOU ARE HITTING GET-BOOKS IN BOOKS.JS", response)
                 dispatch(setBooks(response))
             }
         })
@@ -68,7 +69,7 @@ export const createBook = (bookData, history) => {
           if (resp.error) {
               alert(resp.error)
           } else {
-            //   console.log(resp)
+             console.log("YOU ARE HITTING createBook IN BOOKS.JS", resp)
               dispatch(addBook(resp))
               dispatch(resetNewBookForm())
               history.push(`/books/${resp.id}`)

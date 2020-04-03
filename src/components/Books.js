@@ -6,8 +6,17 @@ import {Link} from 'react-router-dom'
 
 const Books = props => {
     
-    const bookCards = props.books.length > 0 ? props.books.map(b => (<p key={b.id}><Link to={`/books/${b.id}`}>{b.name}</Link></p>)) : null
-    return (bookCards )
+const bookCards = props.books.map(b => (<p key={b.id}><Link to={`/books/${b.id}`}><b>{b.title}</b></Link>
+<br/>
+<b>Description:</b> {b.description}
+<br/>
+<b>Award:</b> {b.award}
+<br/>
+</p>)) 
+    // <p key={b.id}>                   </p>
+    // props.books.length > 0 ? props.books.map(b => (<p key={b.id}><Link to={`/books/${b.id}`}>{b.name}</Link></p>)) : "NO books here"
+    // const bookTitles = props.books.map(b => (<Link to={"/orangepeels"}>{b.title}</Link>))
+    return (bookCards)
 }
 // get array of books from state
 //when use mapStateToProps = we need to see if this 

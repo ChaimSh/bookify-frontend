@@ -1,7 +1,7 @@
 import React from 'react'
 import {createBook} from '../actions/books'
 import {connect} from 'react-redux'
-import NewBookForm from './NewBookForm'
+import NewBookForm from './NewBookForm.js'
 
 
 const NewBookFormWrapper = ({ history, createBook}) => {
