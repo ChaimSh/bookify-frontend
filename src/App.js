@@ -34,9 +34,11 @@ class App extends React.Component {
          <Route exact path='/books' component={Books} />
          <Route exact path='/books/new' component={NewBookFormWrapper} />
          <Route exact path='/books/:id' render={props => {
-           console.log(this.props.books.find(book => (book.id === props.match.params.id)))
-          //  const book = this.props.books[2];
-           const book = this.props.books.find(book => (book.id === props.match.params.id))
+           console.log(books.map(book => (book.id)))
+           console.log(props.match.params.id)
+           console.log(books.find(book => (book.id === props.match.params.id)))
+           const book = books[props.match.params.id - 1];
+          //  const book = books.find(book => (book.id === props.match.params.key))
            console.log(book)
            return <BookCard book={book} {...props}/>
           }

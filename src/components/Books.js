@@ -6,7 +6,7 @@ import {Link} from 'react-router-dom'
 
 const Books = props => {
     
-const bookCards = props.books.map(b => (<p key={b.id}><Link to={`/books/${b.id}`}><b>{b.title}</b></Link>
+const bookCards = props.books.map(b => (<p key={b.id} book={b} ><Link to={`/books/${b.id}`}><b>{b.title}</b></Link>
 <br/>
 <b>Description:</b> {b.description}
 <br/>
