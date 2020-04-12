@@ -14,16 +14,19 @@ class EditBookFormWrapper extends React.Component {
     // = ({ history, updateBook}) =>
     handleSubmit = (formData, userId) => {
         const { updateBook, book, history } = this.props 
+        console.log(this.props)
         updateBook({
             ...formData,
-            bookId: book.id,
+            bookId: this.props.match.params.id, 
+            // book.id,
             userId
         }, history)
     } 
     
     render() {
-        const {history, handleSubmit} = this.props
-    return <NewBookForm editMode history={history} handleSubmit={handleSubmit} />  
+    const {history, book} = this.props
+    const bookId = book ? book.id : null
+    return <NewBookForm editMode handleSubmit={this.handleSubmit} />  
   } 
 }
 
