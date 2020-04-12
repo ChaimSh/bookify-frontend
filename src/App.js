@@ -33,11 +33,11 @@ class App extends React.Component {
          <Route exact path='/login' component={Login} />
          <Route exact path='/books' component={Books} />
          <Route exact path='/books/new' component={NewBookFormWrapper} />
-         {/* {console.log("see my books:", books)} */}
          <Route exact path='/books/:id' render={props => {
-           console.log(this.props.books)
-           const book = books.find(book => book.id === props.match.params.id)
-           
+           console.log(this.props.books.find(book => (book.id === props.match.params.id)))
+          //  const book = this.props.books[2];
+           const book = this.props.books.find(book => (book.id === props.match.params.id))
+           console.log(book)
            return <BookCard book={book} {...props}/>
           }
         } />

@@ -4,7 +4,7 @@ import {connect} from 'react-redux'
 
 
 //functional component
-const NewBookForm = ({formData, updateNewBookForm, userId, book, handleSubmit}) => {
+const NewBookForm = ({formData, updateNewBookForm, userId, book, handleSubmit, editMode}) => {
 const {title, description, award} = formData
     
     const handleChange = event => {
@@ -37,7 +37,7 @@ const {title, description, award} = formData
             onChange={handleChange}
             value={award}
             />
-          <input type="submit" value="Create Book"/>
+          <input type="submit" value={editMode ? "Update Book": "Create Book"}/>
         </form>
      )}
 
