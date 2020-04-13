@@ -22,6 +22,12 @@ export const addBook = book => {
     }
 }
 
+export const deleteBookSuccess = bookId => {
+    return {
+      type: "DELETE_BOOK",
+      bookId
+    }
+  }
 
 export const updateBookSuccess = book => {
     return {
@@ -89,8 +95,7 @@ export const updateBook = (bookData, history) => {
         const sendableData = {
             title: bookData.title,
             description: bookData.description,
-            award: bookData.award,
-            user_id: bookData.userId
+            award: bookData.award
         }
         return fetch(`http://localhost:3001/api/v1/books/${bookData.bookId}`, {
         credentials: 'include',    
@@ -105,12 +110,33 @@ export const updateBook = (bookData, history) => {
             if (resp.error) {
                 alert(resp.error)
             } else {
-               console.log("YOU ARE HITTING createBook IN BOOKS.JS", resp)
                 dispatch(updateBookSuccess(resp))
-                dispatch(resetNewBookForm())
                 history.push(`/books/${resp.id}`)
             }
         })
         .catch(console.log)
     } 
+  }
+
+  export const deleteBook = (bookId, history) => {
+    return dispatch => {
+        return fetch(`http://localhost:3001/api/v1/books/${bookId}`, {
+          credentials: "include",
+          method: "DELETE",
+          headers: {
+            "Content-Type": "application/json"
+          }
+        })
+          .then(r => r.json())
+          .then(resp => {
+            if (resp.error) {
+              alert(resp.error)
+            } else {
+              dispatch(deleteBookSuccess(bookId))
+              history.push(`/books`)
+            }
+          })
+          .catch(console.log)
+    
+      }
   }

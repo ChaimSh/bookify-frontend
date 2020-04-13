@@ -6,6 +6,9 @@ export default (state = [], action) => {
           return state.concat(action.book)
       case "UPDATE_BOOK":
           return state.map(book => book.id === action.book.id ? action.book : book)
+      case "DELETE_BOOK":
+          return state.filter(book => book.id === action.bookId ? false : true)
+          
       case "CLEAR_BOOKS":
           return []
      default:
