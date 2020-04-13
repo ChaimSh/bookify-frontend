@@ -39,6 +39,7 @@
 
 
 .NavBar {
+  font-family: verdana;
   display: flex;
   flex-direction: row;
   justify-content: space-between;
@@ -47,3 +48,19 @@
 .active {
   color: orangered;
 }
+
+.homepage {
+  font-size: 20px;
+  font-family: verdana;
+  color: purple;
+}
+
+body {
+  background-color: rgb(149, 223, 248);
+  /* image: url(https://i.pinimg.com/originals/b1/5f/02/b15f027eddff3f7c88be59a5e724a3a4.jpg); */
+}
+
+p#loggedin{
+  font-family: verdana;
+}
+

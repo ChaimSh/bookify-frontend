@@ -3,7 +3,6 @@ import { updateNewBookForm } from '../actions/newBookForm'
 import {connect} from 'react-redux'
 
 
-//functional component
 const NewBookForm = ({formData, updateNewBookForm, userId, book, handleSubmit, editMode}) => {
 const {title, description, award} = formData
     

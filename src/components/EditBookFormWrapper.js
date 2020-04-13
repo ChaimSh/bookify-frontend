@@ -33,6 +33,7 @@ class EditBookFormWrapper extends React.Component {
     render() {
     const {history, book, deleteBook} = this.props
     const bookId = book ? book.id : null
+    
     return <>
            <NewBookForm editMode handleSubmit={this.handleSubmit} />  
            <br/>
