@@ -36,8 +36,8 @@ class App extends React.Component {
          <Route exact path='/books/:id' render={props => {
            
            const book = books[props.match.params.id - 2];
-          //  const book = books.find(book => (book.id === props.match.params.key))
-          console.log(books) 
+          
+          // console.log(book) 
           return <BookCard book={book} {...props}/>
           }
         } />
@@ -61,3 +61,23 @@ const mapStateToProps = state => {
 }
 
 export default withRouter(connect(mapStateToProps, { getCurrentUser })(App));
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+//  const book = books.find(book => (book.id === props.match.params.key))
