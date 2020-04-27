@@ -1,6 +1,7 @@
 import React from 'react'
 import {connect} from 'react-redux'
 import {Link} from 'react-router-dom'
+import Liking from './Liking.js'
 
 //parent container
 
@@ -11,6 +12,7 @@ const bookCards = props.books.map(b => (<p key={b.id} book={b} ><Link to={`/book
 <b>Description:</b> {b.description}
 <br/>
 <b>Award:</b> {b.award}
+  <Liking/>
 <br/>
 </p>)) 
     // <p key={b.id}>                   </p>

@@ -51,6 +51,7 @@ export const signup = (credentials, history) => {
 
 
 export const login = (credentials, history) => {
+    console.log("c")
     return dispatch => {
         return fetch("http://localhost:3001/api/v1/login", {
             credentials: "include",
@@ -62,6 +63,7 @@ export const login = (credentials, history) => {
         })
         .then(r => r.json())
         .then(user => {
+            console.log("d")
             if (user.error) {
                 alert(user.error)
             } else {
@@ -73,6 +75,7 @@ export const login = (credentials, history) => {
         })
         .catch(console.log)
     }
+    console.log("e")
 }
 
 export const logout = () => {
