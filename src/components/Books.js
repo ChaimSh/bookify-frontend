@@ -18,11 +18,6 @@ const bookCards = props.books.map(b => (<p key={b.id} book={b} ><Link to={`/book
     // const bookTitles = props.books.map(b => (<Link to={"/orangepeels"}>{b.title}</Link>))
     return (bookCards)
 }
-// get array of books from state
-//when use mapStateToProps = we need to see if this 
-//component needs to see any part of state (users, currentUser, loginForm, books) or any piece of them.
-// so mapStateToProps get us access to state inorder to 
-//pick pieces of it and make them available to this component AS PROPS
 
 const mapStateToProps = state => {
   return {

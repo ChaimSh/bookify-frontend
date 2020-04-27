@@ -6,15 +6,12 @@ import {connect} from 'react-redux'
 
 
 class EditBookFormWrapper extends React.Component {
-    
+
     componentDidMount() {
        this.props.book && this.props.setFormDataForEdit(this.props.book)
     }
 
-    componentDidUpdate(prevProps) {
-        this.props.book && !prevProps.book && this.props.setFormDataForEdit(this.props.book)
-      }
-    
+  
       componentWillUnmount() {
         this.props.resetNewBookForm()
       }
@@ -26,11 +23,12 @@ class EditBookFormWrapper extends React.Component {
         updateBook({
             ...formData,
             bookId: this.props.match.params.id 
-            // book.id,
+            // bookId: book.id,
         }, history)
     } 
     
     render() {
+
     const {history, book, deleteBook} = this.props
     const bookId = book ? book.id : null
     
@@ -42,4 +40,41 @@ class EditBookFormWrapper extends React.Component {
   } 
 }
 
+
+
 export default connect(null, {updateBook, setFormDataForEdit, resetNewBookForm, deleteBook})(EditBookFormWrapper);
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+// componentDidUpdate(prevProps) {
+//   this.props.book && !prevProps.book && this.props.setFormDataForEdit(this.props.book)
+// }
+
+
+
+

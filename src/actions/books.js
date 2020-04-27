@@ -65,7 +65,7 @@ export const createBook = (bookData, history) => {
           title: bookData.title,
           description: bookData.description,
           award: bookData.award,
-          user_id: bookData.userId
+          users: bookData.userId
       }
       return fetch("http://localhost:3001/api/v1/books", {
       credentials: 'include',    
@@ -132,6 +132,7 @@ export const updateBook = (bookData, history) => {
             if (resp.error) {
               alert(resp.error)
             } else {
+                console.log(bookId)
               dispatch(deleteBookSuccess(bookId))
               history.push(`/books`)
             }

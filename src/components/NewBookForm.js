@@ -14,7 +14,7 @@ const {title, description, award} = formData
      return(              
         <form onSubmit={event => {
           event.preventDefault()
-          handleSubmit(formData)
+          handleSubmit(formData, userId)
         }}>
             <input
             placeholder="Title"

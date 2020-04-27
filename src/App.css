@@ -64,3 +64,8 @@ p#loggedin{
   font-family: verdana;
 }
 
+.hello{
+  font-size: 20px;
+  font-family: verdana;
+  color: purple;
+}

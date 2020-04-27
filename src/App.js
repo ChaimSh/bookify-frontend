@@ -5,6 +5,7 @@ import Login from './components/Login.js'
 import NavBar from './components/NavBar.js'
 import Books from './components/Books.js'
 import Home from './components/Home.js'
+import Hello from './components/Hello.js'
 import BookCard from './components/BookCard.js'
 import NewBookForm from './components/NewBookForm.js'
 import EditBookFormWrapper from './components/EditBookFormWrapper.js'
@@ -28,21 +29,25 @@ class App extends React.Component {
   return (
       <div className="App"> 
       { loggedIn ? <NavBar location={this.props.location}/> : <Home/> }   
+      {/* The <Switch /> component will only render the first route that 
+      matches/includes the path. Once it finds the first route that matches the path, 
+      it will not look for any other matches.  */}
        <Switch>
+       <Route exact path='/' component={Hello} />
          <Route exact path='/signup' render={({history})=><Signup history={history} />} />
          <Route exact path='/login' component={Login} />
          <Route exact path='/books' component={Books} />
          <Route exact path='/books/new' component={NewBookFormWrapper} />
          <Route exact path='/books/:id' render={props => {
-           
-           const book = books[props.match.params.id - 2];
           
+           const book = books[props.match.params.id -4];
           // console.log(book) 
           return <BookCard book={book} {...props}/>
           }
         } />
 
           <Route exact path='/books/:id/edit' render={props=> {
+            
             const book = books.find(book => book.id === props.match.params.id)
             return <EditBookFormWrapper book={book} {...props}/>
             }

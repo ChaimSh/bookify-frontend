@@ -7,6 +7,7 @@ import {connect} from 'react-redux'
 const NewBookFormWrapper = ({ history, createBook}) => {
    
     const handleSubmit = (formData, userId) => {
+       console.log(userId)
         createBook({
             ...formData, 
             userId
