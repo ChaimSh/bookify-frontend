@@ -12,6 +12,7 @@ const bookCards = props.books.map(b => (<p key={b.id} book={b} ><Link to={`/book
 <b>Description:</b> {b.description}
 <br/>
 <b>Award:</b> {b.award}
+<br/>
   <Liking/>
 <br/>
 </p>)) 

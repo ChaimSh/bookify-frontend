@@ -10,18 +10,17 @@ class Liking extends React.Component {
     }
 
  clickHandler = () => {
-   this.setState((prevState) => {
+   this.setState(prevState => {
     return {   
         toggle: !prevState.toggle
       }
-    }
-   )
- }
+    })
+  }
 
 render(){
   return(   
      <button onClick={this.clickHandler}> 
-
+         {this.state.toggle ? "Liked" : "Not Liked Yet"} 
      </button>
   )
 }
