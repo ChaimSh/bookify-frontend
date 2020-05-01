@@ -33,7 +33,7 @@ class App extends React.Component {
       matches/includes the path. Once it finds the first route that matches the path, 
       it will not look for any other matches.  */}
        <Switch>
-       <Route exact path='/' component={Hello} />
+         {/* <Route exact path='/' component={Hello} /> */}
          <Route exact path='/signup' render={({history})=><Signup history={history} />} />
          <Route exact path='/login' component={Login} />
          <Route exact path='/books' component={Books} />

@@ -131,8 +131,9 @@ export const updateBook = (bookData, history) => {
           .then(resp => {
             if (resp.error) {
               alert(resp.error)
+              console.log("im not working")
             } else {
-                console.log(bookId)
+                console.log("im working")
               dispatch(deleteBookSuccess(bookId))
               history.push(`/books`)
             }
