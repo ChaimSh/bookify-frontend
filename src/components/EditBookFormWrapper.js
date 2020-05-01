@@ -7,11 +7,16 @@ import {connect} from 'react-redux'
 
 class EditBookFormWrapper extends React.Component {
 
-    componentDidMount() {
-       this.props.book && this.props.setFormDataForEdit(this.props.book)
-    }
+      componentDidMount() {
+        this.props.book && this.props.setFormDataForEdit(this.props.book)
+      }
+      
+      
+      componentDidUpdate(prevProps) {
+        this.props.book && !prevProps.book && this.props.setFormDataForEdit(this.props.book)
+      }
 
-  
+        
       componentWillUnmount() {
         this.props.resetNewBookForm()
       }
@@ -70,10 +75,6 @@ export default connect(null, {updateBook, setFormDataForEdit, resetNewBookForm, 
 
 
 
-
-// componentDidUpdate(prevProps) {
-//   this.props.book && !prevProps.book && this.props.setFormDataForEdit(this.props.book)
-// }
 
 
 

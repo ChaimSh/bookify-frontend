@@ -39,16 +39,17 @@ class App extends React.Component {
          <Route exact path='/books' component={Books} />
          <Route exact path='/books/new' component={NewBookFormWrapper} />
          <Route exact path='/books/:id' render={props => {
-          
-           const book = books[props.match.params.id -4];
-          // console.log(book) 
+          const matchId = props.match.params.id
+          const book = books.find(book => (book.id == matchId))
+          // const book = books[props.match.params.id -4];
+          //  console.log(book) 
           return <BookCard book={book} {...props}/>
           }
         } />
 
           <Route exact path='/books/:id/edit' render={props=> {
             
-            const book = books.find(book => book.id === props.match.params.id)
+            const book = books.find(book => book.id == props.match.params.id)
             return <EditBookFormWrapper book={book} {...props}/>
             }
           }/>
@@ -85,4 +86,4 @@ export default withRouter(connect(mapStateToProps, { getCurrentUser })(App));
 
 
 
-//  const book = books.find(book => (book.id === props.match.params.key))
+

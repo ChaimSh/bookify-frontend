@@ -1,10 +1,12 @@
 import React from 'react'
 import {Link} from 'react-router-dom'
-
+import { connect } from 'react-redux'
 
 const BookCard = ({ book }) => {
 
-    return (
+console.log(book)
+
+  return (
         book ?
     <div>  
         {console.log("Hey im in /components/Bookcard.js",book)}
@@ -16,6 +18,6 @@ const BookCard = ({ book }) => {
     :
     <p>No book Here!</p>
     )
-}
+   }
 
 export default BookCard

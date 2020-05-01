@@ -19,9 +19,12 @@ class Liking extends React.Component {
 
 render(){
   return(   
+    <div>  
      <button onClick={this.clickHandler}> 
          {this.state.toggle ? "Liked" : "Not Liked Yet"} 
      </button>
+      
+    </div>
   )
 }
 
