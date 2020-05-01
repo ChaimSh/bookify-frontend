@@ -27,7 +27,8 @@ class EditBookFormWrapper extends React.Component {
         console.log(this.props)
         updateBook({
             ...formData,
-            bookId: this.props.match.params.id 
+            bookId: book.id
+            // this.props.match.params.id 
             // bookId: book.id,
         }, history)
     } 
