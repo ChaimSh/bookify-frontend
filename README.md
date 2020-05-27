@@ -11,7 +11,7 @@ YouTube: https://www.youtube.com/watch?v=Vejw25NfJvQ
 This app was made using React.js framework with Rails backend.
 
 ## Description
-This is app is designed to allow users to list their favorite books. Giving them full ability to view, create, update and delete their books.
+This is app is designed to allow users to list their favorite books, giving them full ability to view, create, update and delete their books.
 
 ## Installation
 1. You can start by forking and cloning the backend repository.
