@@ -16,7 +16,7 @@ This is app is designed to allow users to list their favorite books. Giving them
 ## Installation
 1. You can start by forking and cloning the backend repository.
 2. Navigate to the directory and run bundle install​.
-3. Run rails s​.
+3. Run rails s​ and go to localhost:3001
 4. Fork and clone this repository.
 5. Run npm install​ and npm start​.
 
