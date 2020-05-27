@@ -29,5 +29,5 @@ This is app is designed to allow users to list their favorite books. Giving them
 ## Contribution
 Please feel free to contribute to my app.
 
-## Licences
+## License
 This product is registered under the MIT License - Copyright (c) 2020 Kirill (Chaim) Shcherbina. See ./LICENSE.
