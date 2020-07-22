@@ -14,11 +14,13 @@ console.log(book)
     <div className="container">
     <h3> {book.title} </h3>
      <br/>
-        <button>Upload Image</button>
+        {/* <button>Upload Image</button> */}
     <br/>
         <h4> <b>Description:</b> {book.description}<br/> </h4>
         <h4>  <b>Award:</b> {book.award}<br/> </h4>
-         <h5><Link to={`/books/${book.id}/edit`}>Edit This Book</Link> </h5>
+             <Link to={`/books/${book.id}/edit`}>
+               <button type="button"><h5>Edit This Book</h5></button>
+             </Link> 
 
     </div>
     </div> 
