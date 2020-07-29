@@ -58,6 +58,7 @@
 body {
   /* background-color: rgb(149, 223, 248); */
   background: url(https://images.pexels.com/photos/1148399/pexels-photo-1148399.jpeg?auto=compress&cs=tinysrgb&dpr=3&h=750&w=1260) blue;
+  background-size: cover;
 }
 
 p#loggedin{
