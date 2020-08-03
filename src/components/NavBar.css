@@ -4,4 +4,19 @@
     padding: 0;
     overflow: hidden;
     background-color: whitesmoke;
+    background-size: cover;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-around;
+    margin-right: 2rem;
+    cursor: pointer;     
+}
+
+.NavBar .Navlink {
+    font-size: larger;
+    font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+}
+
+.NavBar .Navlink:hover{
+ background-color:pink ;
 }

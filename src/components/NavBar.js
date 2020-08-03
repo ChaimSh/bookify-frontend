@@ -9,8 +9,12 @@ const NavBar = ({currentUser, loggedIn}) => {
 
     return (
     <div className="NavBar">
-       <NavLink exact activeClassName="active" to="/books"  >View Books</NavLink>
-       <NavLink exact activeClassName="active" to="/books/new" >New Book</NavLink>
+       <div className="Navlink">
+       <NavLink exact activeClassName="active" to="/books"  ><h3>View Books</h3></NavLink>   
+       </div>
+       <div className="Navlink">
+       <NavLink exact activeClassName="active" to="/books/new" ><h3>New Book</h3></NavLink>
+       </div>
       { loggedIn ? <><p id="loggedin">Welcome {currentUser.name}. </p><Logout/></> : null}
       
     </div>      
