@@ -11,7 +11,9 @@ const {title, description, award} = formData
        updateNewBookForm(name, value)
     }
 
-     return(              
+     return( 
+       <div className="newBookForm"> 
+       <h1>{editMode ? "Update Book": "Create Book"}</h1>            
         <form onSubmit={event => {
           event.preventDefault()
           handleSubmit(formData, userId)
@@ -38,6 +40,7 @@ const {title, description, award} = formData
             />
           <input type="submit" value={editMode ? "Update Book": "Create Book"}/>
         </form>
+        </div>
      )}
 
     const mapStateToProps = state => {  

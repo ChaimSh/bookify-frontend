@@ -70,3 +70,22 @@ p#loggedin{
   font-family: verdana;
   color: purple;
 }
+
+ .newBookForm {
+  padding: 300px;
+  box-sizing: border-box;
+  border-radius: 5px;
+}
+
+.newBookForm H1 {
+  color: red;
+  font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+  font-size: large;
+}
+
+input {
+  width: 100%;
+  padding: 12px 20px;
+  margin: 8px 0;
+  box-sizing: border-box;
+}
